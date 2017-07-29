@@ -1,0 +1,78 @@
+\documentclass{../Templetes/1c}
+\usepackage{graphicx}
+\usepackage{bm}
+
+\begin{document}
+\title {1D Diffusion-convection Equation} 
+\maketitle
+
+
+
+\section{Motivation}
+To understand how does convection flow affect the interaction force in the fast rotation limit.
+
+
+
+\section{Equation}
+The number density current is 
+
+\begin{equation}
+j(x,t)=-D\pd_x g+(-\frac{V'}{\gamma}-u)g
+\end{equation}
+
+The conservation of particle number requires that
+
+\begin{equation} \label{c}
+\pd_t g+ \pd_x j=0
+\end{equation}
+
+In steady state $\pd_tg=0$, and eq.\eqref{c} is reduced to
+
+\begin{equation} \label{s}
+\pd_x^2 g+\pd_x\big[(\frac{V'}{\gamma}+u)g\big]=0,
+\end{equation}  
+
+where we have set $D=\gamma=1$ for simplicity. 
+
+In addition, We assume the potential force half-harmonic, i.e. 
+\begin{equation}
+    V(x)=
+   \begin{cases}
+    \frac{K}{2}x^2, &\quad x<0, \\
+    & \\
+    0 & \quad x\geq 0 
+   \end{cases}
+  \end{equation}
+
+\section{Solution}
+
+
+
+
+\subsection{Direct solution?}
+
+For $x>0$, $V'=0$, eq.\eqref{s} is 
+
+\begin{equation} \label{d}
+\big[
+g'+ug
+\big]'=0
+\end{equation}
+
+So $g'+ug=C$. Using boundary condition (BC) $g(x\rightarrow \infty)=1$, 
+$(g'(x\rightarrow\infty)=0$), we get $C=u$ and 
+
+\begin{equation} \label{d2}
+g'+ug=u
+\end{equation}
+
+The general solution is
+\begin{equation} \label{d3}
+g=Ae^{-ux}+1
+\end{equation}
+one can easily convince that eq.\eqref{d3} is the solution of eq.\eqref{d}. 
+$A$ should be dertermined in the case $x<0$.
+
+\end{document}
+
+
