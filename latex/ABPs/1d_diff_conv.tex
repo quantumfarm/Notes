@@ -7,6 +7,20 @@
 \maketitle
 
 
+\section{Conclusion}
+\textcolor{red}{
+In 1D, there is no steady solution of Eq. \eqref{s}!. Mathematically, 
+the no flux boundary condition Eq. \eqref{b2} can not be satisfied!
+Physically, because in the far away, there is always injecting flux, and in 1D the flux 
+has no way to go but has to pass through the wall. In another word, the number in the wall will 
+always accumulate! (Imagine inject water from a pipe continuely!)
+}
+
+\textcolor{red}{
+In 2D, the inject particle can creep around the finite size wall, the no flux boundary could be satisfied. 
+}
+
+
 
 \section{Motivation}
 To understand how does convection flow affect the interaction force in the fast rotation limit.
@@ -44,6 +58,20 @@ In addition, We assume the potential force half-harmonic, i.e.
    \end{cases}
   \end{equation}
 
+\subsection{Boundary condition}
+In the far away field, the density should be not affected by the wall, i.e.
+
+\begin{equation}\label{b1}
+  g(x\rightarrow\infty)=1
+\end{equation}
+
+And on the wall, there should be no flux (otherwise, if there is non-zero flux passing through the wall, 
+then the particles will accumulate in the wall.)
+
+\begin{equation} \label{b2}
+j(x=0)=\Big(-\pd_x g-ug\Big)_{x=0}=0
+\end{equation}
+
 \section{Solution}
 
 
@@ -51,6 +79,7 @@ In addition, We assume the potential force half-harmonic, i.e.
 
 \subsection{Direct solution?}
 
+\subsubsection{$x>0$}
 For $x>0$, $V'=0$, eq.\eqref{s} is 
 
 \begin{equation} \label{d}
@@ -71,7 +100,45 @@ The general solution is
 g=Ae^{-ux}+1
 \end{equation}
 one can easily convince that eq.\eqref{d3} is the solution of eq.\eqref{d}. 
-$A$ should be dertermined in the case $x<0$.
+$A$ should be dertermined by the wall boundary condition eq.\eqref{b1}.
+
+\begin{equation}
+    j(x)=-uA^{-ux}+u(Ae^{-ux}+1)=u. 
+\end{equation}
+
+Clearly, the solution \label{d3} does not satisfy the no flux BC \eqref{b1}!
+
+\subsubsection{$x<0$}
+For $x<0$, eq.\eqref{s} is 
+
+\begin{equation} \label{e}
+\big[
+g'+(V'+u)g
+\big]'=0
+\end{equation}
+
+So
+\begin{equation} \label{e2}
+g'+(V'+u)g=C
+\end{equation}
+Let $g=e^{-V}e^{-ux}w(x)$, so $g'=-V'g-ug+e^{-V-ux}w'$, and Eq.\eqref{e2} is transformed to 
+
+\begin{equation}
+   e^{-V-ux}w'=C
+\end{equation}
+
+The general solution can be written as
+
+\begin{equation}
+   w=C_1\int_x^0 e^{V+ux'}dx'+C_2 
+\end{equation}
+
+Considering the BC $g(0)=A$, we get $C_2=A$. So the solution is
+
+\begin{equation}
+    g=e^{-V-ux} (C\int_x^0 e^{V+ux'}dx')+A
+\end{equation}  
+
 
 \end{document}
 
