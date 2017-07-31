@@ -1,0 +1,204 @@
+\documentclass{../templetes/1c}
+\usepackage{graphicx}
+\usepackage{bm}
+
+\begin{document}
+\title {Diffusion-convection equation in 2d plane}
+\date{\today}
+\maketitle
+
+The diffusion-convection equation reads
+
+\begin{equation}
+D\nabla^2g+\nabla\cdot(\frac{\bm{f}}{\gamma_0}g)
++\nabla\cdot(\bm{u}g)=0
+\end{equation}
+with boundary condition
+\begin{equation}
+g(r\rightarrow\infty )=1
+\end{equation}
+
+For simplicity, set $\gamma_0=D=1
+$.
+
+
+\section{Plane Geometry}
+
+\begin{equation} \label{p}
+\pd_x^2g+\pd_x[-(\pd_xV)g]
++U_x\pd_xg+\pd_y^2g+\pd_y[-(\pd_yV)g]+U_y\pd_yg=0
+\end{equation}
+with BC
+\begin{equation}
+g(r\rightarrow\infty)=1
+\end{equation}
+
+The potential is
+\begin{equation}
+V(x,y)=\frac{K}{2}(x^2+y^2)=v(x)v(y), \mbox{ with } v(x)=\frac{K}{2}x^2.
+\end{equation}
+
+\subsection{Separation of variables(NOT appliable!)}
+Eq.\eqref{p} may be solved by separating the varibles as $g(x,y)=F(x)W(y)$.
+So Eq.\eqref{p} is transformed to
+
+\begin{equation}
+    WF''+Wv_y(-v_x'F)'+WU_xF'+
+    FW''+FU_yW'+Fv_y(-v_y'W)'=0
+\end{equation}
+However, the above eq. can not be seprated.
+Noting that
+
+\begin{equation}
+    F''/F+v_y(-v_x'F)'/F+U_xF'/F+
+    W''/W+U_yW'/W+v_y(-v_y'W)'/W=0
+\end{equation}
+Due to interaction, the term $v_y(-v_x'F)'$
+still depends on $y$. Physically, the equation is
+not separable because the interaction couples the
+equation in different dimensions.
+
+
+
+\end{document}
+
+
+
+Let $g=1+e^{-\lambda x}w(r,\theta)$
+We have
+\begin{equation}
+\pd_x g=-\lambda e^{-\lambda x}w+e^{-\lambda x}\pd_xw
+\end{equation}
+
+\begin{equation}
+\pd_x^2 g=\lambda^2 e^{-\lambda x}w-2\lambda e^{-\lambda x}\pd_xw+
+e^{-\lambda x}\pd_x^2w
+\end{equation}
+
+\begin{equation}
+\pd_y^2 g=e^{-\lambda x}\pd_y^2 w
+\end{equation}
+
+so
+\begin{equation}
+\nabla^2 g=\lambda^2 e^{-\lambda x}w-2\lambda e^{-\lambda x}\pd_xw+
+e^{-\lambda x}\nabla^2w
+\end{equation}
+
+and
+
+\begin{equation}
+U\pd_xg=
+-U\lambda e^{-\lambda x}w+
+Ue^{-\lambda x}\pd_xw
+\end{equation}
+
+To cancel the term $\pd_x w$
+let $\lambda=\frac{U}{2}$.
+
+So
+\begin{equation}
+\nabla^2 g+U\pd_xg=e^{-\lambda x}(-\frac{U^2}{4} w+
+\nabla^2w)
+\end{equation}
+
+And
+\begin{equation}
+\nabla\cdot(\bm{f}g)
+=(\nabla\cdot{\bm{f}})g
++\bm{f}\cdot\nabla g
+=(\nabla\cdot{\bm{f}})
+(1+e^{-\lambda x}w)
++f_r  e^{-\lambda x}
+(-\lambda\cos\theta w+\pd_rw)
+\end{equation}
+
+Thus Eq.\eqref{eq1} can be reformulated as
+\begin{equation}
+-\lambda^2 w+
+\nabla^2w+(e^{\lambda r\cos\theta}+w)\pd_rf_r
++f_r
+(-\lambda\cos\theta w+\pd_rw)
+=0
+\end{equation}
+%-----------------------------
+
+
+%-----------------------------
+\section{Useful formulate}
+\begin{equation}
+\nabla f=\pd_rf\bm{\hat{e}}_r+\frac{1}{r}\pd_\theta f\bm{\hat{e}}_\theta
+\end{equation}
+
+\begin{equation}
+\begin{split}
+\nabla \cdot\bm{A}&=\frac{1}{r}\pd_r (rA_r)+\frac{1}{r}\pd_\theta A_\theta
+\\
+&=\pd_r A_r+\frac{A_r}{r}+\frac{1}{r}\pd_\theta A_\theta
+\end{split}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+\nabla^2f&=\frac{1}{r}\pd_r (r\pd_rf)+\frac{1}{r^2}\pd_\theta^2f
+\\
+&=\pd_r^2 f+\frac{\pd_rf}{r}+\frac{1}{r^2}\pd_\theta ^2f
+\end{split}
+\end{equation}
+
+\begin{equation}
+\pd_x =\cos\theta \pd_r
+-\frac{\sin\theta}{r}\pd_\theta
+\end{equation}
+%-----------------------------
+
+
+
+
+
+%-----------------------------
+\section{Solution of $D=0$}
+In the convection limit, $D=0$, the equation is reduced to
+\begin{equation}
+\nabla\cdot(\bm{f}g)
++u\pd_xg=0
+\end{equation}
+
+Let the radius size is $r_0=1$, $\bm{f}=-k(r-1)\Theta (1-r)
+\bm{\hat{e}}_r
+$
+
+Assume that $g(r\geq1=1)$, so we focus on the regime of $r\leq1$, where
+$\bm{f}=-k(r-1)\bm{\hat{e}}_r$
+and
+
+\begin{equation}
+\nabla\cdot \bm{f}
+=k(\frac{1}{r}-2)
+\end{equation}
+
+so
+\begin{equation}
+\nabla\cdot(\bm{f}g)
+=k(\frac{1}{r}-2)g
+-k(r-1)\pd_rg
+\end{equation}
+and
+
+\begin{equation}
+u\pd_xg=u\cos\theta\pd_rg
+-u\frac{\sin\theta}{r}\pd_\theta g
+\end{equation}
+
+%-----------------------------
+
+Let $g=g(r,\theta)=\xi(r)\psi(\cos\theta)=\xi(r)\psi(w),\quad w=\cos\theta$
+
+so
+\begin{equation}
+k(\frac{1}{r}-2)\xi\psi
+-k(r-1)\xi'\psi+uw\xi'\psi+\frac{u}{r}\xi\psi'=0
+\end{equation}
+
+
+\end{document}

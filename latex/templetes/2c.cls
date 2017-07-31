@@ -1,8 +1,8 @@
 \ProvidesClass{note}[16/12/2014]
 
-%\PassOptionsToClass{prl,amsfonts,twocolumn,amsmath,a4paper}{revtex4}
+\PassOptionsToClass{prl,amsfonts,twocolumn,amsmath,a4paper}{revtex4-1}
 
-\PassOptionsToClass{prl,amsfonts,amsmath,a4paper}{revtex4}
+%\PassOptionsToClass{prl,amsfonts,amsmath,a4paper}{revtex4}
 
 \LoadClass{revtex4-1}
 %\DeclareOption{twocolumn}{\PassOptionsToClass{twocolumn}{note}}
